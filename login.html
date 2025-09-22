@@ -3,13 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>login page</h1>
-    <a href="home.html">Home</a>
-<a href="index.html">Index</a>
-<a href="signup.html">Signup</a>
+    <div id="loader" class="loader-container hidden">
+        <div class="loader"></div>
+    </div>
+    <div id="toast" class="toast hidden"></div>
+     <div id="modal" class="modal-container hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">Notice</h2>
+            <p id="modal-message"></p>
+            <button id="modal-close-btn" class="btn">Close</button>
+        </div>
+    </div>
 
+    <main class="auth-container">
+        <div class="auth-card">
+            <h1>Welcome Back!</h1>
+            <p>Log in to continue.</p>
+
+            <div class="tabs">
+                <button class="tab-link active" data-tab="password-login">Password</button>
+                <button class="tab-link" data-tab="otp-login">OTP</button>
+            </div>
+
+            <div id="password-login" class="tab-content active">
+                <form id="password-login-form" novalidate>
+                    <div class="form-group">
+                        <label for="emailOrPhonePass">Email or Phone</label>
+                        <input type="text" id="emailOrPhonePass" name="emailOrPhone" required>
+                        <div class="error-message" aria-live="polite"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                        <div class="error-message" aria-live="polite"></div>
+                    </div>
+                    <button type="submit" class="btn" id="submit-btn-pass">Log In</button>
+                </form>
+            </div>
+
+            <div id="otp-login" class="tab-content">
+                <form id="otp-login-form" novalidate>
+                    <div class="form-group">
+                        <label for="emailOrPhoneOtp">Email or Phone</label>
+                        <input type="text" id="emailOrPhoneOtp" name="emailOrPhone" required>
+                        <div class="error-message" aria-live="polite"></div>
+                    </div>
+                    <button type="submit" class="btn" id="send-otp-btn">Send OTP</button>
+                </form>
+            </div>
+             <p class="auth-switch">Don't have an account? <a href="signup.html">Sign up</a></p>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
 </body>
 </html>
